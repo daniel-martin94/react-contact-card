@@ -1,25 +1,47 @@
 import React, { useState, useEffect } from 'react'
 import { render } from 'react-dom'
 
-import { Button, Card, Image } from 'semantic-ui-react'
+import { Button, Card, Image, List, Divider, Grid } from 'semantic-ui-react'
 
 const ContactCard = (props) => {
-  let profile = { props }
+  let { profile } = props
   console.log(profile)
-  return(
+  return (
     <Card>
-    <Card.Content>
+      <Card.Content>
         <Image
-          floated='left'
+          floated='right'
           size='mini'
           src="https://www.thepeakid.com/wp-content/uploads/2016/03/default-profile-picture.jpg"
         />
-        <Card.Header>Daniel Martin</Card.Header>
-        <Card.Meta>Business Analyst</Card.Meta>
+        <Card.Header>{profile.firstName} {profile.lastName}</Card.Header>
+        <Card.Content>
+          <Card.Meta textAlign="left">{profile.jobTitle}</Card.Meta>
+          <Card.Meta textAlign="left">{profile.level}</Card.Meta>
+        </Card.Content>
+        <Divider></Divider>
         <Card.Description>
-          Loves to binge watch Star Wars
+          <List>
+            <List.Item>
+              <List.Icon name='phone' />
+              <List.Content>
+                <a>(123) 456 7891</a>
+              </List.Content>
+            </List.Item>
+            <List.Item>
+              <List.Icon name='mail' />
+              <List.Content>
+                <a href='mailto:jack@semantic-ui.com'>jack@semantic-ui.com</a>
+              </List.Content>
+            </List.Item>
+            <List.Item>
+              <List.Icon name='marker' />
+              <List.Content>San Francisco, CA</List.Content>
+            </List.Item>
+          </List>
+          {profile.about}
         </Card.Description>
-    </Card.Content>
+      </Card.Content>
     </Card>
   )
 }
