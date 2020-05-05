@@ -10,19 +10,36 @@ import { TouchableOpacity } from "semantic-ui-react";
 function App () {
 
   const [users, updateUsers] = useState(userData)
-  
-  // useEffect({
-
-  // }, [users])
 
   function renderUsers() {
     return users.users.map(function (item, index) {
       return(
+        <div>
         <ContactCard profile={item.profile}></ContactCard>
+        <ContactCard profile={item.profile}></ContactCard>
+        </div>
       )
     })
   }
 
+  function duplicateUser(){
+
+  }
+
+  function removeUser(){
+
+  }
+
+    function renderUsers() {
+    return users.users.map(function (item, index) {
+      return(
+        <div>
+        <ContactCard profile={item.profile}></ContactCard>
+        <ContactCard profile={item.profile}></ContactCard>
+        </div>
+      )
+    })
+  }
     return (
       <div>
         {renderUsers()}
