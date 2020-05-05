@@ -1,26 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { render } from 'react-dom';
 import Hello from './Hello';
+import ContactCard from './components/ContactCard'
 import './style.css';
+import users from './data.json'
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: 'React'
-    };
-  }
+function App () {
 
-  render() {
+  const [name, updateName] = useState()
+  
+
     return (
       <div>
-        <Hello name={this.state.name} />
-        <p>
-          Start editing to see some magic happen :)
-        </p>
+        <ContactCard>
+        </ContactCard>
       </div>
     );
   }
-}
 
 render(<App />, document.getElementById('root'));
