@@ -5,7 +5,6 @@ import { Button, Card, Image, List, Divider, Grid } from 'semantic-ui-react'
 
 const ContactCard = (props) => {
   let { profile } = props
-  console.log(profile)
   return (
     <Card>
       <Card.Content>
@@ -16,11 +15,13 @@ const ContactCard = (props) => {
         />
         <Card.Header>{profile.firstName} {profile.lastName}</Card.Header>
         <Card.Content>
-          <Card.Meta textAlign="left">{profile.jobTitle}</Card.Meta>
-          <Card.Meta textAlign="left">{profile.level}</Card.Meta>
+          <Card.Meta textAlign="left">{profile.jobTitle} - {profile.level}</Card.Meta>
         </Card.Content>
-        <Divider></Divider>
         <Card.Description>
+            {profile.about}
+        </Card.Description>
+        <Divider></Divider>
+        <Card.Content>
           <List>
             <List.Item>
               <List.Icon name='phone' />
@@ -39,8 +40,7 @@ const ContactCard = (props) => {
               <List.Content>San Francisco, CA</List.Content>
             </List.Item>
           </List>
-          {profile.about}
-        </Card.Description>
+        </Card.Content>
       </Card.Content>
     </Card>
   )
