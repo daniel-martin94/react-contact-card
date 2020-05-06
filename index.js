@@ -15,7 +15,7 @@ function App () {
     return users.users.map(function (item, index) {
       return(
         <div>
-        <ContactCard profile={item.profile}></ContactCard>
+        <ContactCard profile={item.profile} removeUser={removeUser(index)}></ContactCard>
         <ContactCard profile={item.profile}></ContactCard>
         </div>
       )
@@ -26,8 +26,8 @@ function App () {
 
   }
 
-  function removeUser(){
-
+  function removeUser(index){
+    
   }
 
     function renderUsers() {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { render } from 'react-dom'
 
-import { Button, Card, Image, List, Divider, Grid } from 'semantic-ui-react'
+import { Button, Card, Image, List, Divider, Grid, Button, Icon } from 'semantic-ui-react'
 
 const ContactCard = (props) => {
   let { profile } = props
@@ -18,29 +18,35 @@ const ContactCard = (props) => {
           <Card.Meta textAlign="left">{profile.jobTitle} - {profile.level}</Card.Meta>
         </Card.Content>
         <Card.Description>
-            {profile.about}
+          {profile.about}
         </Card.Description>
-        <Divider></Divider>
-        <Card.Content>
-          <List>
-            <List.Item>
-              <List.Icon name='phone' />
-              <List.Content>
-                <a>(123) 456 7891</a>
-              </List.Content>
-            </List.Item>
-            <List.Item>
-              <List.Icon name='mail' />
-              <List.Content>
-                <a href='mailto:jack@semantic-ui.com'>jack@semantic-ui.com</a>
-              </List.Content>
-            </List.Item>
-            <List.Item>
-              <List.Icon name='marker' />
-              <List.Content>San Francisco, CA</List.Content>
-            </List.Item>
-          </List>
-        </Card.Content>
+      </Card.Content>
+
+      <Card.Content>
+        <List>
+          <List.Item>
+            <List.Icon name='phone' />
+            <List.Content>
+              <a>(123) 456 7891</a>
+            </List.Content>
+          </List.Item>
+          <List.Item>
+            <List.Icon name='mail' />
+            <List.Content>
+              <a href='mailto:jack@semantic-ui.com'>jack@semantic-ui.com</a>
+            </List.Content>
+          </List.Item>
+          <List.Item>
+            <List.Icon name='marker' />
+            <List.Content>San Francisco, CA</List.Content>
+          </List.Item>
+        </List>
+      </Card.Content>
+
+      <Card.Content>
+        <Button color="red" size='mini'>
+          <Icon icon="trash"/>
+        </Button>
       </Card.Content>
     </Card>
   )
