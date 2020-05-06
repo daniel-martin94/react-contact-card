@@ -5,46 +5,35 @@ import ContactCard from './components/ContactCard'
 import './style.css';
 import userData from './data.json'
 
-import { TouchableOpacity } from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 
-function App () {
-
-  const [users, updateUsers] = useState(userData)
+function App() {
+  const [users, updateUsers] = useState(userData.users)
 
   function renderUsers() {
-    return users.users.map(function (item, index) {
-      return(
+    console.log(users)
+    return users.map(function (item, index) {
+      return (
         <div>
-        <ContactCard profile={item.profile} removeUser={removeUser(index)}></ContactCard>
-        <ContactCard profile={item.profile}></ContactCard>
+          <ContactCard key={item.id} profile={item.profile} removeUser={removeUser} id={item.id}></ContactCard>
         </div>
       )
     })
   }
 
-  function duplicateUser(){
-
+  function removeUser(id) {
+    updateUsers(users.filter(function (item) {
+      if (item.id != id) {
+        return item
+      }
+    }))
   }
 
-  function removeUser(index){
-    
-  }
-
-    function renderUsers() {
-    return users.users.map(function (item, index) {
-      return(
-        <div>
-        <ContactCard profile={item.profile}></ContactCard>
-        <ContactCard profile={item.profile}></ContactCard>
-        </div>
-      )
-    })
-  }
-    return (
-      <div>
-        {renderUsers()}
-      </div>
-    );
-  }
+  return (
+    <Container>
+      {renderUsers()}
+    </Container>
+  );
+}
 
 render(<App />, document.getElementById('root'));

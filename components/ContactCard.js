@@ -4,7 +4,7 @@ import { render } from 'react-dom'
 import { Button, Card, Image, List, Divider, Grid, Button, Icon } from 'semantic-ui-react'
 
 const ContactCard = (props) => {
-  let { profile } = props
+  let { profile, removeUser, id } = props
   return (
     <Card>
       <Card.Content>
@@ -44,9 +44,7 @@ const ContactCard = (props) => {
       </Card.Content>
 
       <Card.Content>
-        <Button color="red" size='mini'>
-          <Icon icon="trash"/>
-        </Button>
+         <Button color="red" icon='trash' onClick={() => removeUser(id)}/>
       </Card.Content>
     </Card>
   )
