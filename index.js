@@ -11,7 +11,6 @@ function App() {
   const [users, updateUsers] = useState(userData.users)
 
   function renderUsers() {
-    console.log(users)
     return users.map(function (item, index) {
       return (
         <div>
